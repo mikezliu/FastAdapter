@@ -58,17 +58,6 @@ object FastAdapterDiffUtil {
         //pass in the oldItem list copy as we will update the one in the adapter itself
         val result = DiffUtil.calculateDiff(FastAdapterCallback(oldItems, items, callback), detectMoves)
 
-        //make sure the new items list is not a reference of the already mItems list
-        if (items !== adapterItems) {
-            //remove all previous items
-            if (adapterItems.isNotEmpty()) {
-                adapterItems.clear()
-            }
-
-            //add all new items to the list
-            adapterItems.addAll(items)
-        }
-
         return result
     }
 
